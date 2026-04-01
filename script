@@ -1,0 +1,203 @@
+/* ══════════════════════════════════════════════════
+Newton Coaching Centre – script.js
+══════════════════════════════════════════════════ */
+
+document.addEventListener(‘DOMContentLoaded’, () => {
+
+/* ─── Navbar: scroll class + active link ─── */
+const navbar   = document.getElementById(‘navbar’);
+const navLinks = document.querySelectorAll(’.nav-link’);
+const sections = document.querySelectorAll(‘section[id]’);
+
+const onScroll = () => {
+// Scrolled state
+navbar.classList.toggle(‘scrolled’, window.scrollY > 50);
+
+```
+// Back-to-top visibility
+backToTop.classList.toggle('visible', window.scrollY > 400);
+
+// Active nav link
+let current = '';
+sections.forEach(sec => {
+  if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+});
+navLinks.forEach(link => {
+  link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+});
+```
+
+};
+
+window.addEventListener(‘scroll’, onScroll, { passive: true });
+onScroll();
+
+/* ─── Mobile hamburger menu ─── */
+const hamburger   = document.getElementById(‘hamburger’);
+const navLinksEl  = document.getElementById(‘navLinks’);
+
+hamburger.addEventListener(‘click’, () => {
+hamburger.classList.toggle(‘open’);
+navLinksEl.classList.toggle(‘open’);
+document.body.style.overflow = navLinksEl.classList.contains(‘open’) ? ‘hidden’ : ‘’;
+});
+
+// Close menu on link click
+navLinksEl.querySelectorAll(’.nav-link’).forEach(link => {
+link.addEventListener(‘click’, () => {
+hamburger.classList.remove(‘open’);
+navLinksEl.classList.remove(‘open’);
+document.body.style.overflow = ‘’;
+});
+});
+
+/* ─── Back To Top ─── */
+const backToTop = document.getElementById(‘backToTop’);
+backToTop.addEventListener(‘click’, () => window.scrollTo({ top: 0, behavior: ‘smooth’ }));
+
+/* ─── Hero Particles ─── */
+const particlesContainer = document.getElementById(‘particles’);
+if (particlesContainer) {
+const count = window.innerWidth < 768 ? 12 : 24;
+for (let i = 0; i < count; i++) {
+const p = document.createElement(‘div’);
+p.className = ‘particle’;
+const size = Math.random() * 6 + 3;
+p.style.cssText = `width: ${size}px; height: ${size}px; left: ${Math.random() * 100}%; animation-duration: ${Math.random() * 14 + 8}s; animation-delay: ${Math.random() * -20}s; opacity: ${Math.random() * 0.4 + 0.1};`;
+particlesContainer.appendChild(p);
+}
+}
+
+/* ─── Scroll Reveal ─── */
+const revealEls = document.querySelectorAll(
+‘.about-grid, .course-card, .timing-card, .teacher-spotlight, .gallery-item, .contact-card, .testi-card, .section-header, .feature-item, .about-feature-box, .timings-note’
+);
+
+revealEls.forEach(el => el.classList.add(‘reveal’));
+
+const observer = new IntersectionObserver(
+(entries) => {
+entries.forEach((entry, i) => {
+if (entry.isIntersecting) {
+// Staggered delay for grids
+setTimeout(() => entry.target.classList.add(‘visible’), i * 60);
+observer.unobserve(entry.target);
+}
+});
+},
+{ threshold: 0.12 }
+);
+
+revealEls.forEach(el => observer.observe(el));
+
+/* ─── Testimonials Slider ─── */
+const track      = document.getElementById(‘testimonialsTrack’);
+const dotsWrap   = document.getElementById(‘testiDots’);
+const prevBtn    = document.getElementById(‘testiPrev’);
+const nextBtn    = document.getElementById(‘testiNext’);
+
+if (track) {
+const cards      = track.querySelectorAll(’.testi-card’);
+const total      = cards.length;
+let current      = 0;
+let perView      = getPerView();
+let maxIndex     = Math.max(0, total - perView);
+
+```
+function getPerView() {
+  if (window.innerWidth < 640)  return 1;
+  if (window.innerWidth < 1024) return 2;
+  return 3;
+}
+
+// Build dots
+function buildDots() {
+  dotsWrap.innerHTML = '';
+  const dotCount = maxIndex + 1;
+  for (let i = 0; i <= maxIndex; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'testi-dot' + (i === current ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+}
+
+function goTo(idx) {
+  current = Math.max(0, Math.min(idx, maxIndex));
+  const cardWidth = cards[0].offsetWidth + 24; // gap = 24px
+  track.style.transform = `translateX(-${current * cardWidth}px)`;
+  dotsWrap.querySelectorAll('.testi-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+}
+
+prevBtn.addEventListener('click', () => goTo(current - 1));
+nextBtn.addEventListener('click', () => goTo(current + 1));
+
+// Auto-play
+let autoPlay = setInterval(() => goTo(current < maxIndex ? current + 1 : 0), 4500);
+track.addEventListener('mouseenter', () => clearInterval(autoPlay));
+track.addEventListener('mouseleave', () => {
+  autoPlay = setInterval(() => goTo(current < maxIndex ? current + 1 : 0), 4500);
+});
+
+// Touch/swipe
+let startX = 0;
+track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const diff = startX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+});
+
+// Resize
+window.addEventListener('resize', () => {
+  perView  = getPerView();
+  maxIndex = Math.max(0, total - perView);
+  current  = Math.min(current, maxIndex);
+  buildDots();
+  goTo(current);
+});
+
+buildDots();
+```
+
+}
+
+/* ─── Smooth scroll for all anchor links ─── */
+document.querySelectorAll(‘a[href^=”#”]’).forEach(anchor => {
+anchor.addEventListener(‘click’, e => {
+const target = document.querySelector(anchor.getAttribute(‘href’));
+if (target) {
+e.preventDefault();
+target.scrollIntoView({ behavior: ‘smooth’, block: ‘start’ });
+}
+});
+});
+
+/* ─── Stat counter animation ─── */
+const statNums = document.querySelectorAll(’.stat-num’);
+let statsAnimated = false;
+
+const statsObserver = new IntersectionObserver(entries => {
+if (entries[0].isIntersecting && !statsAnimated) {
+statsAnimated = true;
+statNums.forEach(el => {
+const raw = el.textContent;
+const num = parseInt(raw);
+if (isNaN(num)) return;
+const suffix = raw.replace(num.toString(), ‘’);
+let start = 0;
+const step = Math.ceil(num / 40);
+const timer = setInterval(() => {
+start = Math.min(start + step, num);
+el.textContent = start + suffix;
+if (start >= num) clearInterval(timer);
+}, 35);
+});
+}
+}, { threshold: 0.5 });
+
+const heroStats = document.querySelector(’.hero-stats’);
+if (heroStats) statsObserver.observe(heroStats);
+
+});
