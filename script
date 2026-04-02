@@ -13,7 +13,6 @@ const onScroll = () => {
 // Scrolled state
 navbar.classList.toggle(‘scrolled’, window.scrollY > 50);
 
-```
 // Back-to-top visibility
 backToTop.classList.toggle('visible', window.scrollY > 400);
 
@@ -25,7 +24,6 @@ sections.forEach(sec => {
 navLinks.forEach(link => {
   link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
 });
-```
 
 };
 
@@ -103,7 +101,6 @@ let current      = 0;
 let perView      = getPerView();
 let maxIndex     = Math.max(0, total - perView);
 
-```
 function getPerView() {
   if (window.innerWidth < 640)  return 1;
   if (window.innerWidth < 1024) return 2;
@@ -159,7 +156,6 @@ window.addEventListener('resize', () => {
 });
 
 buildDots();
-```
 
 }
 
