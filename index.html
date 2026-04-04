@@ -41,7 +41,7 @@
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#courses" class="nav-link">Courses</a>
-        <a href="#teachers" class="nav-link">Director</a>
+        <a href="#teachers" class="nav-link">Faculty</a>
         <a href="#timings" class="nav-link">Batches</a>
         <a href="#gallery" class="nav-link">Gallery</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -141,7 +141,7 @@
       <div class="about-grid">
         <div class="about-visual">
           <div class="about-img-wrap">
-            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="Classroom at Newton Coaching Centre" loading="lazy" />
+            <img src="images/8.jpg" alt="Classroom at Newton Coaching Centre" loading="lazy" />
             <div class="about-img-badge">
               <span class="badge-year">2009</span>
               <span class="badge-label">Est.</span>
@@ -300,14 +300,41 @@
   <section class="teachers" id="teachers">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Meet the Mind Behind It All</span>
-        <h2 class="section-title">Our Director</h2>
+        <span class="section-tag">Meet Our Expert Team</span>
+        <h2 class="section-title">Our Faculty</h2>
         <p class="section-sub">Guided by an engineer, driven by the love of teaching</p>
       </div>
+      <style>
+        .faculty-card {
+          background: white;
+          padding: 1.5rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+          text-align: center;
+          border: 1px solid rgba(0,0,0,0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .faculty-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .faculty-icon-wrap {
+          background: var(--primary-light, #e0e7ff);
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1rem auto;
+          color: var(--primary-color, #4338ca);
+          font-size: 1.5rem;
+        }
+      </style>
       <div class="teacher-spotlight">
         <div class="teacher-img-col">
           <div class="teacher-img-wrap">
-            <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=500&q=80" alt="Er. Surendra Kumar – Director" loading="lazy" />
+            <img src="images/9.jpg" alt="Er. Surendra Kumar – Director" loading="lazy" />
             <div class="teacher-badge-wrap">
               <span class="teacher-badge">Director & Founder</span>
             </div>
@@ -345,6 +372,53 @@
               <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
           </div>
+        </div>
+      </div>
+
+      <div class="other-faculty" style="margin-top: 4rem;">
+        <h3 style="text-align: center; margin-bottom: 2.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 2rem;">Our Expert Teachers</h3>
+        <div class="faculty-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+          
+          <div class="faculty-card">
+            <div class="faculty-icon-wrap">
+               <i class="fas fa-flask"></i>
+            </div>
+            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Rajesh Kumar</h4>
+            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.Sc. (Chemistry)</p>
+          </div>
+
+          <div class="faculty-card">
+            <div class="faculty-icon-wrap">
+               <i class="fas fa-globe-asia"></i>
+            </div>
+            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Abhijeet Sir</h4>
+            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.A. (Geography), B.Ed. <br>& B.Sc. (Biology)</p>
+          </div>
+
+          <div class="faculty-card">
+            <div class="faculty-icon-wrap">
+               <i class="fas fa-book-open"></i>
+            </div>
+            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Sikindra Sir</h4>
+            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.A. (Hindi) <br>& B.Com</p>
+          </div>
+
+          <div class="faculty-card">
+            <div class="faculty-icon-wrap">
+               <i class="fas fa-language"></i>
+            </div>
+            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Lavkush Kumar</h4>
+            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.A. (English)</p>
+          </div>
+
+          <div class="faculty-card">
+            <div class="faculty-icon-wrap">
+               <i class="fas fa-vial"></i>
+            </div>
+            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Madhurendra Kumar</h4>
+            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.Sc. (Chemistry)</p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -445,28 +519,72 @@
       </div>
       <div class="gallery-grid">
         <div class="gallery-item gi-large">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="Classroom session" loading="lazy" />
+          <img src="images/2.jpg" alt="Interactive Classes" loading="lazy" />
           <div class="gallery-overlay"><span>Interactive Classes</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80" alt="Students studying" loading="lazy" />
+          <img src="images/3.jpg" alt="Focused Study" loading="lazy" />
           <div class="gallery-overlay"><span>Focused Study</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80" alt="Mathematics on board" loading="lazy" />
+          <img src="images/4.jpg" alt="Board Sessions" loading="lazy" />
           <div class="gallery-overlay"><span>Board Sessions</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1532094349884-543559c79d2b?w=400&q=80" alt="Science lab" loading="lazy" />
+          <img src="images/5.jpg" alt="Science Concepts" loading="lazy" />
           <div class="gallery-overlay"><span>Science Concepts</span></div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&q=80" alt="Group study" loading="lazy" />
+          <img src="images/6.jpg" alt="Group Learning" loading="lazy" />
           <div class="gallery-overlay"><span>Group Learning</span></div>
         </div>
         <div class="gallery-item gi-tall">
-          <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400&q=80" alt="Teacher explaining" loading="lazy" />
+          <img src="images/7.jpg" alt="Expert Guidance" loading="lazy" />
           <div class="gallery-overlay"><span>Expert Guidance</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/9.jpg" alt="Classroom" loading="lazy" />
+          <div class="gallery-overlay"><span>Classroom</span></div>
+        </div>
+        <div class="gallery-item gi-large">
+          <img src="images/10.jpg" alt="Students" loading="lazy" />
+          <div class="gallery-overlay"><span>Students</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/11.jpg" alt="Mathematics" loading="lazy" />
+          <div class="gallery-overlay"><span>Mathematics</span></div>
+        </div>
+        <div class="gallery-item gi-tall">
+          <img src="images/12.jpg" alt="Campus" loading="lazy" />
+          <div class="gallery-overlay"><span>Campus</span></div>
+        </div>
+        <div class="gallery-item gi-large">
+          <img src="images/13.jpg" alt="Newton Coaching" loading="lazy" />
+          <div class="gallery-overlay"><span>Newton Coaching</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/14.jpg" alt="Studies" loading="lazy" />
+          <div class="gallery-overlay"><span>Studies</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/15.jpg" alt="Team Work" loading="lazy" />
+          <div class="gallery-overlay"><span>Team Work</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/16.jpg" alt="Discipline" loading="lazy" />
+          <div class="gallery-overlay"><span>Discipline</span></div>
+        </div>
+        <div class="gallery-item gi-large">
+          <img src="images/17.jpg" alt="Activities" loading="lazy" />
+          <div class="gallery-overlay"><span>Activities</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/18.jpg" alt="Achievers" loading="lazy" />
+          <div class="gallery-overlay"><span>Achievers</span></div>
+        </div>
+        <div class="gallery-item gi-tall">
+          <img src="images/19.jpg" alt="Exams" loading="lazy" />
+          <div class="gallery-overlay"><span>Exams</span></div>
         </div>
       </div>
     </div>
@@ -650,7 +768,7 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#courses">Courses</a></li>
-              <li><a href="#teachers">Director</a></li>
+              <li><a href="#teachers">Faculty</a></li>
               <li><a href="#timings">Batch Timings</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
