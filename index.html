@@ -311,28 +311,57 @@
       <style>
         .faculty-card {
           background: white;
-          padding: 1.5rem;
-          border-radius: 12px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+          padding: 2rem 1.5rem;
+          border-radius: 20px;
+          box-shadow: var(--shadow-sm);
           text-align: center;
-          border: 1px solid rgba(0,0,0,0.05);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          border: 1px solid var(--border);
+          transition: var(--transition);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         .faculty-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+          transform: translateY(-8px);
+          box-shadow: var(--shadow-md);
+          border-color: var(--gold);
         }
-        .faculty-icon-wrap {
-          background: var(--primary-light, #e0e7ff);
-          width: 60px;
-          height: 60px;
+        .faculty-img-wrap {
+          width: 130px;
+          height: 130px;
           border-radius: 50%;
+          overflow: hidden;
+          margin-bottom: 1.5rem;
+          border: 4px solid var(--gold-pale);
+          box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+          background: var(--navy-light);
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto 1rem auto;
-          color: var(--primary-color, #4338ca);
-          font-size: 1.5rem;
+          flex-shrink: 0;
+        }
+        .faculty-img-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+        }
+        .faculty-img-wrap i {
+          font-size: 2.5rem;
+          color: var(--gold);
+        }
+        .faculty-name {
+          font-family: var(--font-head);
+          color: var(--navy);
+          font-size: 1.35rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+        .faculty-desc {
+          color: var(--text-muted);
+          font-size: 0.9rem;
+          line-height: 1.5;
+          margin: 0;
         }
       </style>
       <div class="teacher-spotlight">
@@ -384,43 +413,43 @@
         <div class="faculty-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
           
           <div class="faculty-card">
-            <div class="faculty-icon-wrap">
-               <i class="fas fa-flask"></i>
+            <div class="faculty-img-wrap">
+               <img src="images/rajesh.jpg" alt="Rajesh Kumar" loading="lazy">
             </div>
-            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Rajesh Kumar</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.Sc. (Chemistry)</p>
+            <h4 class="faculty-name">Rajesh Kumar</h4>
+            <p class="faculty-desc">M.Sc. (Chemistry)</p>
           </div>
 
           <div class="faculty-card">
-            <div class="faculty-icon-wrap">
-               <i class="fas fa-globe-asia"></i>
+            <div class="faculty-img-wrap">
+               <img src="images/abhijeet.jpg" alt="Abhijeet Sir" loading="lazy">
             </div>
-            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Abhijeet Sir</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.A. (Geography), B.Ed. <br>& B.Sc. (Biology)</p>
+            <h4 class="faculty-name">Abhijeet Sir</h4>
+            <p class="faculty-desc">M.A. (Geography), B.Ed. <br>& B.Sc. (Biology)</p>
           </div>
 
           <div class="faculty-card">
-            <div class="faculty-icon-wrap">
-               <i class="fas fa-book-open"></i>
+            <div class="faculty-img-wrap">
+               <img src="images/sikindra.jpg" alt="Sikindra Sir" loading="lazy">
             </div>
-            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Sikindra Sir</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.A. (Hindi) <br>& B.Com</p>
+            <h4 class="faculty-name">Sikindra Sir</h4>
+            <p class="faculty-desc">M.A. (Hindi) <br>& B.Com</p>
           </div>
 
           <div class="faculty-card">
-            <div class="faculty-icon-wrap">
-               <i class="fas fa-language"></i>
+            <div class="faculty-img-wrap">
+               <img src="images/lavkush.jpg" alt="Lavkush Kumar" loading="lazy">
             </div>
-            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Lavkush Kumar</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.A. (English)</p>
+            <h4 class="faculty-name">Lavkush Kumar</h4>
+            <p class="faculty-desc">M.A. (English)</p>
           </div>
 
           <div class="faculty-card">
-            <div class="faculty-icon-wrap">
-               <i class="fas fa-vial"></i>
+            <div class="faculty-img-wrap">
+               <img src="images/madhurendra.jpg" alt="Madhurendra Kumar" loading="lazy">
             </div>
-            <h4 style="margin-bottom: 0.5rem; font-family: var(--font-heading); color: var(--text-dark); font-size: 1.25rem;">Madhurendra Kumar</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">M.Sc. (Chemistry)</p>
+            <h4 class="faculty-name">Madhurendra Kumar</h4>
+            <p class="faculty-desc">M.Sc. (Chemistry)</p>
           </div>
 
         </div>
